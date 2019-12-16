@@ -1,1 +1,115 @@
-123456789
+一、git的工作区有三个
+
+1、git的工作区 和.git同在一个目录下
+
+2、git的缓存区 存在文件index里
+
+3、git的本地版本库 存在object里
+
+二、git的文件状态
+
+未跟踪的 未修改的 修改的 暂存的
+
+三、git的常用命令
+
+git config --global user.name test
+
+git config --global user.email "zhou@126.com"
+
+git config --list
+
+//创建一个新文件夹
+
+git init//初始化版本库
+
+git add filename//添加文件
+
+git commit filename -m "add filename"//提交文件
+
+git satuts//查看状态
+
+git diff//查看不同
+
+git diff --cached //查看版本库与暂存区有什么不同
+
+git mv fileoldname filenewname//修改文件名字
+
+git rm filename//删除文件 版本不同有时不能从文件库检出
+
+创建分支：
+
+git branch branchname  parentname//创建分支
+
+git checkout branchname//切换到本分支
+
+git branch -d branchname//删除分支
+
+git checkout -b branchname parentname//创建并切换到本分支
+
+创建标签
+
+git tag 1.0 branchname//创建标签
+
+git archive --format=zip --prefix=/test/ 1.0 >my1.0.zip //版本打包成zip发布
+
+克隆远程版本库
+
+新建文件test
+
+mkdir test
+
+git clone git://github.com/tswicegood/mysite.git test    //克隆远程版本库并放在文件夹test下
+
+git add .//添加所有文件
+
+git commit -m"提交信息" -a //提交所有内容
+
+并不是所有的文件都是需要保存的可以建忽略文件.gitignore
+
+把要忽略的文件名保存其中，然后提交版本库将不会保存其内容
+
+分支和并：
+
+简单合并在所要合并的父分支下，合并所要合并的分支
+
+简单合并
+
+*master
+
+rb1.3
+
+git merge rb1.3
+
+压缩合并
+
+git merge --squash rb1.3
+
+捡挑合并
+
+git cherry-pick 04db7e8
+
+删除分支
+
+git branch -d rb1.3
+
+强制删除分支
+
+git branch -D rb1.3
+
+分支重新命名
+
+git branch -m 新分支名 旧分支名
+
+git branch -r 查看远程版本库分支
+
+git fetch 远程版本库 分支  //不合并
+
+git pull  远程版本库 分支//合并
+
+git push 远程版本库 本地：远程
+
+git push origin mybranch:master
+
+git remote add origin git://ourcompany.com/dev-erin.git
+
+
